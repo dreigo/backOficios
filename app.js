@@ -22,10 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser({limit: '50mb'}));
 app.use(bodyParser.json());
 
-// Importar Rutas
-const appRoutes = require('./routes/app');
-const usuarioRoutes = require('./routes/usuario_route');
-
 // Conexión a la base de datos
 mongoose.connection.openUri('mongodb://localhost:27017/MedioAmbienteAAO', (err, res) => {
     if (err) throw err;
@@ -33,7 +29,13 @@ mongoose.connection.openUri('mongodb://localhost:27017/MedioAmbienteAAO', (err, 
 });
 
 
+// Importar Rutas
+const loginRoutes = require('./routes/login_route');
+const usuarioRoutes = require('./routes/usuario_route');
+const appRoutes = require('./routes/app');
+
 // Rutas
+app.use('/login', loginRoutes);
 app.use('/usuario', usuarioRoutes);
 app.use('/', appRoutes);
 
