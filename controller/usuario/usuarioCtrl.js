@@ -2,12 +2,11 @@ const Usuario = require('../../models/usuario_model');
 const Resp = require('../../helpers/respuestas');
 const bcrypt = require('bcryptjs');
 
-
 module.exports = {
     /**
      * crea un nuevo usuario
      */
-    PostUsuario: async(req,res,next) => {
+    PostUsuario: async(req,res) => {
         try {
             const body = req.body;
             if (body.password === body.password2){
@@ -50,7 +49,7 @@ module.exports = {
     /**
      *  Regresa todos los usuarios 
      */
-    GetUsuario: async(req,res,next) => {
+    GetUsuario: async(req,res) => {
         try {
             let desde = req.query.desde || 0;
             desde = Number(desde);
@@ -63,7 +62,7 @@ module.exports = {
     /**
      * actualiza el nombre aPaterno aMaterno, role y estado
      */
-    PutUsuario: async(req,res,next) => {
+    PutUsuario: async(req,res) => {
         try {
             let id = req.params.id;
             let body = req.body;
@@ -90,7 +89,7 @@ module.exports = {
     /**
      * cambia la contraseña del usuario
      */
-    PutUsuarioPass: async(req,res,next) => {
+    PutUsuarioPass: async(req,res) => {
         const id = req.params.id;
         const body = req.body;
 

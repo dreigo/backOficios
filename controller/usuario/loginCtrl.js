@@ -8,7 +8,7 @@ module.exports = {
     /**
      * Autentiación normal con jwt
      */
-    PostLogin: async(req,res,next) => {
+    PostLogin: async(req,res) => {
         try {
             const body = req.body;
 
@@ -58,7 +58,11 @@ module.exports = {
             let mensaje = 'Error desconocino al login con un Usuario';
             return Resp.respuestaErrorServer(res, mensaje, error);
         }
-    }
+    },
+    
+    GetLoginRenewToken: async(req,res) => {
+        Resp.respuestaOKPrueba(res, 'renueva token');
+    },
 };
 
 function obtenerMenu(ROLE) {
