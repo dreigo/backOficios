@@ -37,11 +37,13 @@ mongoose.connect('mongodb://localhost:27017/MedioAmbienteAAO', { useNewUrlParser
 });
 
 // Importar Rutas
+const oficioRoutes = require('./routes/oficio_route');
 const loginRoutes = require('./routes/login_route');
 const usuarioRoutes = require('./routes/usuario_route');
 const appRoutes = require('./routes/app');
 
 // Rutas
+app.use('/oficio', oficioRoutes);
 app.use('/login', loginRoutes);
 app.use('/usuario', usuarioRoutes);
 app.use('/', appRoutes);
