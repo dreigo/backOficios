@@ -26,23 +26,25 @@ var oficioSchema = new Schema({
     asunto: {type: String, required: true, uppercase: true},
     solicitud: {type: String, required: true, uppercase: true},
     referencias: {type: String, required: false, uppercase: true},
-    turnado: [
-        {
+    turnado: [{
             nombreDestino: {type: String, required: false, uppercase: true},
             aPaternoDestino: {type: String, required: false, uppercase: true},
             aMaternoDestino: {type: String, required: false, uppercase: true},
             cargoDestino: {type: String, required: false, uppercase: true},
             areaDestino: {type: String, required: false, uppercase: true},
             estado: {type: String, required: false, uppercase: true}, // 0 inactivo, 1 activo
-            fechaCreacion: {type: String, required: false},
-        }
-    ],
+            fechaCreacion: {type: String, required: false},        
+    }],
     // Respuesta
-    respuesta: {type: String, required: false, uppercase: true},
-    noInternoRespuesta: {type: String, required: false},
-    fechaRespuesta: {type: String, required: false},
-    fechaRespuestaEpoch: {type: String, required: false},
+    respuesta: [{
+        respuesta: {type: String, required: false, uppercase: true},
+        noOficioRespuesta: {type: String, required: false},
+        fechaRespuesta: {type: String, required: false},
+        fechaRespuestaEpoch: {type: String, required: false},
+        observacionesRespuesta: {type: String, required: false},
+    }],
     observaciones: { type: String, required: false },
+    estado: { type: String, required: false }, // 0 inactivo, 1 activo, 2 turnado, 3 respondido
     archivado: { type: String, required: false },
     fechaCreacion: { type: String, required: false },
     fechaCreacionEpoch: { type: String, required: false },

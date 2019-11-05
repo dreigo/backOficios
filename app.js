@@ -7,8 +7,6 @@ const bodyParser = require('body-parser');
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 
-
-
 // Inicializar Variables
 const app = express();
 
